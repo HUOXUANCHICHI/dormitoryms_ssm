@@ -43,6 +43,7 @@ public class StudentServiceImpl implements StudentService {
             case "name":
                 list = studentMapper.searchByName(value);
                 break;
+            default:
         }
         return list;
     }
@@ -101,6 +102,7 @@ public class StudentServiceImpl implements StudentService {
             case "name":
                 list = studentMapper.searchForMoveOutByName(value);
                 break;
+            default:
         }
         return list;
     }

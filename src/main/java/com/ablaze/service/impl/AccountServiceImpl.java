@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
  * @Date: 2022/09/08/12:57
  */
 @Service
+//@SuppressWarnings("all")
 public class AccountServiceImpl implements AccountService {
 
     @Autowired
@@ -25,7 +26,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public AccountDto login(AccountForm accountForm) {
-        AccountDto dto = new AccountDto<>();
+        AccountDto dto = new AccountDto();
         //判断用户类型
         switch (accountForm.getType()) {
             case "systemAdmin":
@@ -53,6 +54,7 @@ public class AccountServiceImpl implements AccountService {
                     } else {
                         dto.setCode(0);
                         dto.setAdmin(dormitoryAdmin);
+                        System.out.println("dto.getClass() = " + dto.getClass());
                     }
                 }
                 break;
