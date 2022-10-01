@@ -24,15 +24,15 @@
                 <div class="panel-body">
                     <form role="form" class="form-inline" action="${pageContext.request.contextPath}/moveOut/search" method="post">
                         <div class="form-group">
-                            <label for="name">字段：</label>
-                            <select name="key" class="form-control">
+                            <label for="key">字段：</label>
+                            <select id="key" name="key" class="form-control">
                                 <option value="number">学号</option>
                                 <option value="name">姓名</option>
                             </select>
                         </div>
                         <div class="form-group" style="margin-left: 20px">
                             <label for="value">值：</label>
-                            <input type="text" class="form-control" name="value" placeholder="字段值" maxlength="12" style="width: 130px">
+                            <input id="value" type="text" class="form-control" name="value" placeholder="字段值" maxlength="12" style="width: 130px">
                         </div>
                         <div class="form-group " style="margin-left: 20px">
                             <button type="submit" class="btn btn-info ">
@@ -114,9 +114,9 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">迁出原因</label>
+                                            <label for="reason" class="col-sm-3 control-label">迁出原因</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control"
+                                                <input id="reason" type="text" required class="form-control"
                                                        name="reason">
                                             </div>
                                         </div>

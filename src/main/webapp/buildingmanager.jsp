@@ -23,15 +23,15 @@
                 <div class="panel-body">
                     <form role="form" class="form-inline" action="${pageContext.request.contextPath}/building/search" method="post">
                         <div class="form-group">
-                            <label for="name">字段：</label>
-                            <select name="key" class="form-control">
+                            <label for="key">字段：</label>
+                            <select id="key" name="key" class="form-control">
                                 <option value="name">名称</option>
                                 <option value="introduction">介绍</option>
                             </select>
                         </div>
                         <div class="form-group" style="margin-left: 20px">
                             <label for="value">值：</label>
-                            <input type="text" class="form-control" name="value" placeholder="字段值" maxlength="12" style="width: 130px">
+                            <input id="value" type="text" class="form-control" name="value" placeholder="字段值" maxlength="12" style="width: 130px">
                         </div>
                         <div class="form-group " style="margin-left: 20px">
                             <button type="submit" class="btn btn-info ">
@@ -93,7 +93,7 @@
                 </table>
                 <!-- add框示例（Modal） -->
                 <form method="post" action="${pageContext.request.contextPath}/building/save" class="form-horizontal" style="margin-top: 0px" role="form"
-                      id="form_data" style="margin: 20px;">
+                      id="addForm_data" style="margin: 20px;">
                     <div class="modal fade" id="addUserModal" tabindex="-1"
                          role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -101,31 +101,31 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">x</button>
-                                    <h4 class="modal-title" id="myModalLabel">添加楼宇信息</h4>
+                                    <h4 class="modal-title" id="addMyModalLabel">添加楼宇信息</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form class="form-horizontal" role="form">
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">名称</label>
+                                            <label for="addName" class="col-sm-3 control-label">名称</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="name"
+                                                <input type="text" required class="form-control" id="addName"
                                                        name="name" value="" placeholder="请输入名称">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">介绍</label>
+                                            <label for="addIntroduction" class="col-sm-3 control-label">介绍</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="introduction"
+                                                <input type="text" required class="form-control" id="addIntroduction"
                                                        name="introduction" value="" placeholder="请输入介绍">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">管理员</label>
+                                            <label for="addAdminId" class="col-sm-3 control-label">管理员</label>
                                             <div class="col-sm-9">
-                                                <select class="form-control" name="adminId">
+                                                <select id="addAdminId" class="form-control" name="adminId">
                                                     <c:forEach items="${dormitoryAdminList}" var="dormitoryAdmin">
                                                         <option value="${dormitoryAdmin.id}">${dormitoryAdmin.name}</option>
                                                     </c:forEach>
@@ -146,7 +146,7 @@
 
                 <!-- update框示例（Modal） -->
                 <form method="post" action="${pageContext.request.contextPath}/building/update" class="form-horizontal" style="margin-top: 0px" role="form"
-                      id="form_data" style="margin: 20px;">
+                      id="updateForm_data" style="margin: 20px;">
                     <div class="modal fade" id="updateUserModal" tabindex="-1"
                          role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -154,39 +154,39 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">x</button>
-                                    <h4 class="modal-title" id="myModalLabel">用户信息</h4>
+                                    <h4 class="modal-title" id="updateMyModalLabel">用户信息</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form class="form-horizontal" role="form">
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">ID</label>
+                                            <label for="updateId" class="col-sm-3 control-label">ID</label>
                                             <div class="col-sm-9">
-                                                <input type="text" readonly required class="form-control" id="id"
+                                                <input type="text" readonly required class="form-control" id="updateId"
                                                        name="id">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">名称</label>
+                                            <label for="updateName" class="col-sm-3 control-label">名称</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="name"
+                                                <input type="text" required class="form-control" id="updateName"
                                                        name="name" value="" placeholder="请输入名称">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">介绍</label>
+                                            <label for="updateIntroduction" class="col-sm-3 control-label">介绍</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="introduction"
+                                                <input type="text" required class="form-control" id="updateIntroduction"
                                                        name="introduction" value="" placeholder="请输入介绍">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">管理员</label>
+                                            <label for="updateAdminId" class="col-sm-3 control-label">管理员</label>
                                             <div class="col-sm-9">
-                                                <select class="form-control" name="adminId">
+                                                <select id="updateAdminId" class="form-control" name="adminId">
                                                     <c:forEach items="${dormitoryAdminList}" var="dormitoryAdmin">
                                                         <option class="adminId" value="${dormitoryAdmin.id}">${dormitoryAdmin.name}</option>
                                                     </c:forEach>
@@ -225,7 +225,7 @@
                                                 <h3 class="col-sm-18 control-label" id="deleteLabel">删除信息</h3>
                                                 <input type="hidden" class="form-control" id="tab"
                                                        name="tab" placeholder="" value="dor_admin"> <input
-                                                    type="hidden" class="form-control" id="id"
+                                                    type="hidden" class="form-control" id="delId"
                                                     name="id" placeholder="">
                                             </div>
                                         </div>
@@ -255,16 +255,16 @@
         const modal = $(this);
 
         modal.find('.modal-title').text('修改楼宇信息')
-        modal.find('#id').val(id)
+        modal.find('#updateId').val(id)
         const list = modal.find('.adminId');
         for (let i=0; i<list.length; i++){
             const obj = $(list.get(i));
-            if(adminId == obj.val()){
+            if(adminId === obj.val()){
                 obj.attr("selected","selected");
             }
         }
-        modal.find('#introduction').val(introduction)
-        modal.find('#name').val(name)
+        modal.find('#updateIntroduction').val(introduction)
+        modal.find('#updateName').val(name)
     })
 
     $('#delUserModal').on('show.bs.modal', function(event) {
@@ -273,7 +273,7 @@
         const modal = $(this);
         modal.find('.modal-title').text('删除楼宇信息')
         modal.find('#deleteLabel').text('是否删除ID为  ' + id + ' 的信息')
-        modal.find('#id').val(id)
+        modal.find('#delId').val(id)
     })
 </script>
 

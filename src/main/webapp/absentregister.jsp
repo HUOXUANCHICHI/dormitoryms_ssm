@@ -30,7 +30,7 @@
                     <div class="modal-body">
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
-                                <label for="user_id" class="col-sm-3 control-label">楼宇</label>
+                                <label for="building" class="col-sm-3 control-label">楼宇</label>
                                 <div class="col-sm-9">
                                     <select id="building" required class="form-control" name="buildingId">
                                         <c:forEach items="${buildingList}" var="building">
@@ -41,7 +41,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="user_id" class="col-sm-3 control-label">宿舍</label>
+                                <label for="dormitory" class="col-sm-3 control-label">宿舍</label>
                                 <div class="col-sm-9">
                                     <select id="dormitory" required class="form-control" name="dormitoryId">
                                         <c:forEach items="${dormitoryList}" var="dormitory">
@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="user_id" class="col-sm-3 control-label">学生</label>
+                                <label for="student" class="col-sm-3 control-label">学生</label>
                                 <div class="col-sm-9">
                                     <select id="student" required class="form-control" name="studentId">
                                         <c:forEach items="${studentList}" var="student">
@@ -63,17 +63,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="user_id" class="col-sm-3 control-label">原因</label>
+                                <label for="reason" class="col-sm-3 control-label">原因</label>
                                 <div class="col-sm-9">
-                                    <input type="text" required class="form-control" name="reason" placeholder="请输入缺寝原因">
+                                    <input id="reason" type="text" required class="form-control" name="reason" placeholder="请输入缺寝原因">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="user_id" class="col-sm-3 control-label">日期</label>
+                                <label for="date" class="col-sm-3 control-label">日期</label>
                                 <div class="col-sm-9">
                                     <div class='input-group date' id='datetimepicker'>
-                                        <input type='text' name="createDate" required class="form-control"/>
+                                        <input id="date" type='text' name="createDate" required class="form-control"/>
                                         <span class="input-group-addon">
 								    		<span class="glyphicon glyphicon-calendar"></span>
 								    	</span>

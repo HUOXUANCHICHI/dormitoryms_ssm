@@ -45,7 +45,7 @@ public interface StudentMapper {
      * 学生删除根据id
      * @param id
      */
-    void delete(Integer id);
+    int delete(Integer id);
 
     /**
      * 学生查询id根据宿舍id

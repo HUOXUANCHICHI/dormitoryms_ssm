@@ -24,15 +24,15 @@
                 <div class="panel-body">
                     <form role="form" class="form-inline" action="${pageContext.request.contextPath}/moveOut/recordSearch" method="post">
                         <div class="form-group">
-                            <label for="name">字段：</label>
-                            <select name="key" class="form-control">
+                            <label for="key">字段：</label>
+                            <select id="key" name="key" class="form-control">
                                 <option value="studentName">学生</option>
                                 <option value="dormitoryName">宿舍</option>
                             </select>
                         </div>
                         <div class="form-group" style="margin-left: 20px">
                             <label for="value">值：</label>
-                            <input type="text" class="form-control" name="value" placeholder="字段值" maxlength="12" style="width: 130px">
+                            <input id="value" type="text" class="form-control" name="value" placeholder="字段值" maxlength="12" style="width: 130px">
                         </div>
                         <div class="form-group " style="margin-left: 20px">
                             <button type="submit" class="btn btn-info ">

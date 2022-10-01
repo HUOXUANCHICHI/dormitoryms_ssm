@@ -43,6 +43,7 @@ public class StudentServiceImpl implements StudentService {
             case "name":
                 list = studentMapper.searchByName(value);
                 break;
+            default:
         }
         return list;
     }
@@ -76,8 +77,12 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void delete(Student student) {
         try {
-            studentMapper.delete(student.getId());
-            dormitoryMapper.addAvailable(student.getDormitoryId());
+            int studentBoolean = studentMapper.delete(student.getId());
+            if (studentBoolean > 0) {
+                dormitoryMapper.addAvailable(student.getDormitoryId());
+            } else {
+                System.out.println("删除失败");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -101,6 +106,7 @@ public class StudentServiceImpl implements StudentService {
             case "name":
                 list = studentMapper.searchForMoveOutByName(value);
                 break;
+            default:
         }
         return list;
     }

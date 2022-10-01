@@ -23,8 +23,8 @@
                 <div class="panel-body">
                     <form role="form" class="form-inline" action="${pageContext.request.contextPath}/dormitoryAdmin/search" method="post">
                         <div class="form-group">
-                            <label for="name">字段：</label>
-                            <select name="key" class="form-control">
+                            <label for="key">字段：</label>
+                            <select id="key" name="key" class="form-control">
                                 <option value="username">宿管帐号</option>
                                 <option value="name">宿管姓名</option>
                                 <option value="telephone">宿管电话</option>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group" style="margin-left: 20px">
                             <label for="value">值：</label>
-                            <input type="text" class="form-control" name="value" placeholder="字段值" maxlength="12" style="width: 130px">
+                            <input id="value" type="text" class="form-control" name="value" placeholder="字段值" maxlength="12" style="width: 130px">
                         </div>
                         <div class="form-group " style="margin-left: 20px">
                             <button type="submit" class="btn btn-info ">
@@ -102,7 +102,7 @@
                 </table>
                 <!-- add框示例（Modal） -->
                 <form method="post" action="${pageContext.request.contextPath}/dormitoryAdmin/save" class="form-horizontal" style="margin-top: 0px" role="form"
-                      id="form_data" style="margin: 20px;">
+                      id="addForm_data" style="margin: 20px;">
                     <div class="modal fade" id="addUserModal" tabindex="-1"
                          role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -110,36 +110,36 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">x</button>
-                                    <h4 class="modal-title" id="myModalLabel">添加宿管信息</h4>
+                                    <h4 class="modal-title" id="addMyModalLabel">添加宿管信息</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form class="form-horizontal" role="form">
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">用户名</label>
+                                            <label for="addUserName" class="col-sm-3 control-label">用户名</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="username"
+                                                <input type="text" required class="form-control" id="addUserName"
                                                        name="username" placeholder="请输入用户名">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">密码</label>
+                                            <label for="addPassword" class="col-sm-3 control-label">密码</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="password"
+                                                <input type="text" required class="form-control" id="addPassword"
                                                        name="password" value="" placeholder="请输入密码">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">姓名</label>
+                                            <label for="addName" class="col-sm-3 control-label">姓名</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="name"
+                                                <input type="text" required class="form-control" id="addName"
                                                        name="name" value="" placeholder="请输入姓名">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">性别</label>
+                                            <label class="col-sm-3 control-label">性别</label>
                                             <div class="col-sm-9">
                                                 <input type="radio" checked value="男" class="gender"
                                                        name="gender"> 男
@@ -149,9 +149,9 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">联系电话</label>
+                                            <label for="addTelephone" class="col-sm-3 control-label">联系电话</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="telephone"
+                                                <input type="text" required class="form-control" id="addTelephone"
                                                        name="telephone" value="" placeholder="请输入联系电话">
                                             </div>
                                         </div>
@@ -168,7 +168,7 @@
 
                 <!-- update框示例（Modal） -->
                 <form method="post" action="${pageContext.request.contextPath}/dormitoryAdmin/update" class="form-horizontal" style="margin-top: 0px" role="form"
-                      id="form_data" style="margin: 20px;">
+                      id="updateForm_data" style="margin: 20px;">
                     <div class="modal fade" id="updateUserModal" tabindex="-1"
                          role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -176,43 +176,43 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">x</button>
-                                    <h4 class="modal-title" id="myModalLabel">用户信息</h4>
+                                    <h4 class="modal-title" id="updateMyModalLabel">用户信息</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form class="form-horizontal" role="form">
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">ID</label>
+                                            <label for="updateId" class="col-sm-3 control-label">ID</label>
                                             <div class="col-sm-9">
-                                                <input type="text" readonly required class="form-control" id="id"
+                                                <input type="text" readonly required class="form-control" id="updateId"
                                                        name="id">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">用户名</label>
+                                            <label for="updateUserName" class="col-sm-3 control-label">用户名</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="username"
+                                                <input type="text" required class="form-control" id="updateUserName"
                                                        name="username" placeholder="请输入用户名">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">密码</label>
+                                            <label for="updatePassword" class="col-sm-3 control-label">密码</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="password"
+                                                <input type="text" required class="form-control" id="updatePassword"
                                                        name="password" value="" placeholder="请输入密码">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">姓名</label>
+                                            <label for="updateName" class="col-sm-3 control-label">姓名</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="name"
+                                                <input type="text" required class="form-control" id="updateName"
                                                        name="name" value="" placeholder="请输入姓名">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">性别</label>
+                                            <label class="col-sm-3 control-label">性别</label>
                                             <div class="col-sm-9">
                                                 <input type="radio" checked value="男" class="gender"
                                                        name="gender"> 男
@@ -222,9 +222,9 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="user_id" class="col-sm-3 control-label">联系电话</label>
+                                            <label for="updateTelephone" class="col-sm-3 control-label">联系电话</label>
                                             <div class="col-sm-9">
-                                                <input type="text" required class="form-control" id="telephone"
+                                                <input type="text" required class="form-control" id="updateTelephone"
                                                        name="telephone" value="" placeholder="">
                                             </div>
                                         </div>
@@ -260,7 +260,7 @@
                                                 <input type="hidden" class="form-control" id="tab"
                                                        name="tab" placeholder="" value="dor_admin"> <input
                                                     type="hidden" class="form-control" id="id"
-                                                    name="id" placeholder="">
+                                                    name="delId" placeholder="">
                                             </div>
                                         </div>
                                     </form>
@@ -291,13 +291,13 @@
         const modal = $(this);
 
         modal.find('.modal-title').text('修改宿管信息')
-        modal.find('#id').val(id)
+        modal.find('#updateId').val(id)
         modal.find('#username').val(username)
         modal.find('#password').val(password)
         modal.find('#name').val(name)
         const list = modal.find('.gender');
         for(let i=0; i<list.length; i++){
-            if(gender == $(list.get(i)).val()){
+            if(gender === $(list.get(i)).val()){
                 $(list.get(i)).prop('checked',true)
             }
         }
@@ -311,7 +311,7 @@
         const modal = $(this);
         modal.find('.modal-title').text('删除宿管信息')
         modal.find('#deleteLabel').text('是否删除ID为  ' + id + ' 的信息')
-        modal.find('#id').val(id)
+        modal.find('#delId').val(id)
     })
 </script>
 
