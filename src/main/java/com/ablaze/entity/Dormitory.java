@@ -17,5 +17,8 @@ public class Dormitory {
      * 宿舍可用人数
      */
     private Integer available;
+    /**
+     * 宿舍固定电话
+     */
     private String telephone;
 }

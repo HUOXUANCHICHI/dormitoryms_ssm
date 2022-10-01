@@ -267,7 +267,8 @@
         const button = $(event.relatedTarget);
         const id = button.data('id');
         const modal = $(this);
-        modal.find('.modal-title').text('删除宿舍信息')
+        modal.find('.modal' +
+            '-title').text('删除宿舍信息')
         modal.find('#deleteLabel').text('是否删除ID为  ' + id + ' 的信息')
         modal.find('#delId').val(id)
     })

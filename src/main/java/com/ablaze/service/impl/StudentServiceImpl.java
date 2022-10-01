@@ -123,6 +123,7 @@ public class StudentServiceImpl implements StudentService {
             studentMapper.updateStateById(moveOut.getStudentId());
             Date date = new Date();
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            //(已解决) 修改sql表结构Date
             moveOut.setCreateDate(format.format(date));
             studentMapper.moveOut(moveOut);
         } catch (Exception e) {

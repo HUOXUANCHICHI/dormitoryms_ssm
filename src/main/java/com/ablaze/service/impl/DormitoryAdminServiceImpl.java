@@ -41,6 +41,7 @@ public class DormitoryAdminServiceImpl implements DormitoryAdminService {
             case "telephone":
                 list = dormitoryAdminMapper.searchByTelephone(value);
                 break;
+            default:
         }
         return list;
 

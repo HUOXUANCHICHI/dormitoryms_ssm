@@ -59,4 +59,8 @@ public class AccountController {
         session.invalidate();
         return "login";
     }
+
+
+    //TODO 注册
+
 }
