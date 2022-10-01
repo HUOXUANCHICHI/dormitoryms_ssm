@@ -37,6 +37,7 @@ public class AbsentServiceImpl implements AbsentService {
             case "dormitoryName":
                 list = absentMapper.searchByDormitoryName(value);
                 break;
+                //TODO  根据查询缺寝记录
             default:
         }
         return list;
