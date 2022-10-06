@@ -31,6 +31,13 @@ public interface AbsentMapper {
     List<Absent> searchByDormitoryName(String value);
 
     /**
+     * 学生缺勤记录根据学生名称查询
+     * @param value
+     * @return
+     */
+    List<Absent> searchByStudentName(String value);
+
+    /**
      * 缺寝记录增加
      * @param absent
      */

@@ -27,6 +27,7 @@
                             <select id="key" name="key" class="form-control">
                                 <option value="buildingName">楼宇</option>
                                 <option value="dormitoryName">宿舍</option>
+                                <option value="studentName">学生</option>
                             </select>
                         </div>
                         <div class="form-group" style="margin-left: 20px">

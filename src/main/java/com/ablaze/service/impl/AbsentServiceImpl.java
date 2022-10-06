@@ -3,6 +3,7 @@ package com.ablaze.service.impl;
 import com.ablaze.entity.Absent;
 import com.ablaze.mapper.AbsentMapper;
 import com.ablaze.service.AbsentService;
+import com.ablaze.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +38,8 @@ public class AbsentServiceImpl implements AbsentService {
             case "dormitoryName":
                 list = absentMapper.searchByDormitoryName(value);
                 break;
-                //TODO  根据查询缺寝记录
+            case "studentName":
+                list = absentMapper.searchByStudentName(value);
             default:
         }
         return list;

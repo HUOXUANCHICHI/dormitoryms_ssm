@@ -3,12 +3,10 @@ package com.ablaze.controller;
 import com.ablaze.entity.Student;
 import com.ablaze.service.DormitoryService;
 import com.ablaze.service.StudentService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -28,11 +26,21 @@ public class StudentController {
     private DormitoryService dormitoryService;
 
 
-    @GetMapping("/list")
+    /*@GetMapping("/list")
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("studentmanager");
         modelAndView.addObject("list", studentService.list());
+        modelAndView.addObject("dormitoryList", dormitoryService.availableList());
+        return modelAndView;
+    }*/
+
+    @GetMapping("/listPage")
+    public ModelAndView listPage(@RequestParam(defaultValue = "1") int page,@RequestParam(defaultValue = "5") int size) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("studentmanager");
+        PageInfo pageInfos = new PageInfo(studentService.list(page,size));
+        modelAndView.addObject("pageInfos",pageInfos);
         modelAndView.addObject("dormitoryList", dormitoryService.availableList());
         return modelAndView;
     }

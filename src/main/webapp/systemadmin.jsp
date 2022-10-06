@@ -48,7 +48,7 @@
 							<i class="fa fa-user-circle-o fa-fw"></i>
 						</span>宿管管理
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/student/list',1)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/student/listPage?page=1&size=5',1)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-user-circle fa-fw"></i>
 						</span>学生管理

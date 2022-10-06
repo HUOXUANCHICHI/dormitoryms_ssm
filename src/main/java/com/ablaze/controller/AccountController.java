@@ -61,6 +61,4 @@ public class AccountController {
     }
 
 
-    //TODO 注册
-
 }

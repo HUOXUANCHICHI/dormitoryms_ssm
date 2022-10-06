@@ -61,6 +61,26 @@
           and d.name like concat('%', #{value}, '%')
     </select>
 
+    <select id="searchByStudentName" resultType="com.ablaze.entity.Absent">
+        select a.id,
+               b.name        buildingName,
+               d.name        dormitoryName,
+               s.name        studentName,
+               a.reason,
+               da.name       dormitoryAdminName,
+               a.create_date createDate
+        from dormitory d,
+             student s,
+             building b,
+             absent a,
+             dormitory_admin da
+        where d.id = a.dormitory_id
+          and s.id = a.student_id
+          and b.id = a.building_id
+          and da.id = a.dormitory_admin_id
+          and s.name like concat('%', #{value}, '%')
+    </select>
+
     <insert id="save">
         insert into absent(building_id, dormitory_id, student_id, dormitory_admin_id, create_date, reason)
         values (#{buildingId}, #{dormitoryId}, #{studentId}, #{dormitoryAdminId}, #{createDate}, #{reason})

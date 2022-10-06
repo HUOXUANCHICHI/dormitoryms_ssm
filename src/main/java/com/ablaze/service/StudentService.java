@@ -15,7 +15,7 @@ public interface StudentService {
      * 学生查询全部
      * @return
      */
-    List<Student> list();
+    List<Student> list(int page,int size);
 
     /**
      * 学生条件查询

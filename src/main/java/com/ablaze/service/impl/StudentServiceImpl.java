@@ -5,6 +5,7 @@ import com.ablaze.entity.Student;
 import com.ablaze.mapper.DormitoryMapper;
 import com.ablaze.mapper.StudentMapper;
 import com.ablaze.service.StudentService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,8 @@ public class StudentServiceImpl implements StudentService {
     DormitoryMapper dormitoryMapper;
 
     @Override
-    public List<Student> list() {
+    public List<Student> list(int page,int size) {
+        PageHelper.startPage(page,size);
         return studentMapper.list();
     }
 

@@ -69,7 +69,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${list}" var="student">
+                    <c:forEach items="${pageInfos.list}" var="student">
                         <tr>
                             <td>${student.id}</td>
                             <td>${student.dormitoryName}</td>
@@ -106,7 +106,8 @@
                     </tbody>
                 </table>
                 <!-- add框示例（Modal） -->
-                <form method="post" action="${pageContext.request.contextPath}/student/save" class="form-horizontal" style="margin-top: 0px" role="form"
+                <form method="post" action="${pageContext.request.contextPath}/student/save" class="form-horizontal"
+                      style="margin-top: 0px" role="form"
                       id="addForm_data" style="margin: 20px;">
                     <div class="modal fade" id="addUserModal" tabindex="-1"
                          role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -114,7 +115,8 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">x</button>
+                                            aria-hidden="true">x
+                                    </button>
                                     <h4 class="modal-title" id="addMyModalLabel">添加学生信息</h4>
                                 </div>
                                 <div class="modal-body">
@@ -124,7 +126,8 @@
                                             <div class="col-sm-9">
                                                 <select id="addDormitory" class="form-control" name="dormitoryId">
                                                     <c:forEach items="${dormitoryList}" var="dormitory">
-                                                        <option value="${dormitory.id}" class="dormitory">${dormitory.name}</option>
+                                                        <option value="${dormitory.id}"
+                                                                class="dormitory">${dormitory.name}</option>
                                                     </c:forEach>
                                                 </select>
                                             </div>
@@ -168,7 +171,8 @@
                 </form>
 
                 <!-- update框示例（Modal） -->
-                <form method="post" action="${pageContext.request.contextPath}/student/update" class="form-horizontal" style="margin-top: 0px" role="form"
+                <form method="post" action="${pageContext.request.contextPath}/student/update" class="form-horizontal"
+                      style="margin-top: 0px" role="form"
                       id="updateForm_data" style="margin: 20px;">
                     <div class="modal fade" id="updateUserModal" tabindex="-1"
                          role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -176,7 +180,8 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">x</button>
+                                            aria-hidden="true">x
+                                    </button>
                                     <h4 class="modal-title" id="updateMyModalLabel">用户信息</h4>
                                 </div>
                                 <div class="modal-body">
@@ -186,7 +191,7 @@
                                             <label class="col-sm-3 control-label">ID</label>
                                             <div class="col-sm-9">
                                                 <input type="text" readonly required class="form-control"
-                                                        id="updateId" name="id">
+                                                       id="updateId" name="id">
                                             </div>
                                         </div>
 
@@ -195,7 +200,8 @@
                                             <div class="col-sm-9">
                                                 <select class="form-control" name="dormitoryId">
                                                     <c:forEach items="${dormitoryList}" var="dormitory">
-                                                        <option value="${dormitory.id}" class="dormitory">${dormitory.name}</option>
+                                                        <option value="${dormitory.id}"
+                                                                class="dormitory">${dormitory.name}</option>
                                                     </c:forEach>
                                                 </select>
                                             </div>
@@ -258,7 +264,8 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">×</button>
+                                            aria-hidden="true">×
+                                    </button>
                                     <h4 class="modal-title" id="myModalLabel">用户信息</h4>
                                 </div>
                                 <div class="modal-body">
@@ -288,9 +295,29 @@
         </div>
     </div>
 </div>
+<nav aria-label="Page navigation" style="text-align: center;">
+    <ul class="pagination">
+        <li><a href="${pageContext.request.contextPath}/student/listPage.do?page=1&size=5" aria-label="Previous">首页</a>
+        </li>
+        <li><a href="${pageContext.request.contextPath}/student/listPage.do?page=${pageInfos.pageNum-1}&size=5">上一页</a>
+        </li>
+        <c:forEach begin="1" end="${pageInfos.pages}" var="pageNumber">
+            <li>
+                <a href="${pageContext.request.contextPath}/student/listPage.do?page=${pageNumber}&size=5">${pageNumber}</a>
+            </li>
+        </c:forEach>
+        <li><a href="${pageContext.request.contextPath}/student/listPage.do?page=${pageInfos.pageNum+1}&size=5">下一页</a>
+        </li>
+        <li><a href="${pageContext.request.contextPath}/student/listPage.do?page=${pageInfos.pages}&size=5"
+               aria-label="Next">尾页</a></li>
+    </ul>
+</nav>
+</div>
+</div>
+</div>
 
 <script>
-    $('#updateUserModal').on('show.bs.modal', function(event) {
+    $('#updateUserModal').on('show.bs.modal', function (event) {
 
         const button = $(event.relatedTarget);
         const id = button.data('id');
@@ -321,7 +348,7 @@
         }
     })
 
-    $('#delUserModal').on('show.bs.modal', function(event) {
+    $('#delUserModal').on('show.bs.modal', function (event) {
         const button = $(event.relatedTarget);
         const id = button.data('id');
         const dormitoryId = button.data('dormitoryId');
