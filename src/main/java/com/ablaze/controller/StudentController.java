@@ -48,11 +48,11 @@ public class StudentController {
     }
 
     @PostMapping("/search")
-    public ModelAndView search(String key, String value,@RequestParam(defaultValue = "1") int page,@RequestParam(defaultValue = "5") int size) {
+    public ModelAndView search(String key, String value, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int size) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("studentmanager");
-        PageInfo pageInfos = new PageInfo(studentService.search(key, value,page,size));
-        modelAndView.addObject("pageInfos",pageInfos);
+        PageInfo pageInfos = new PageInfo(studentService.search(key, value, page, size));
+        modelAndView.addObject("pageInfos", pageInfos);
         modelAndView.addObject("dormitoryList", dormitoryService.availableList());
         return modelAndView;
     }

@@ -5,6 +5,7 @@ import com.ablaze.mapper.BuildingMapper;
 import com.ablaze.mapper.DormitoryMapper;
 import com.ablaze.mapper.StudentMapper;
 import com.ablaze.service.BuildingService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +28,14 @@ public class BuildingServiceImpl implements BuildingService {
     private StudentMapper studentMapper;
 
     @Override
-    public List<Building> list() {
+    public List<Building> list(int page,int size) {
+        PageHelper.startPage(page,size);
         return buildingMapper.list();
     }
 
     @Override
-    public List<Building> search(String key, String value) {
+    public List<Building> search(String key, String value,int page,int size) {
+        PageHelper.startPage(page,size);
         if ("".equals(value)) {
             return buildingMapper.list();
         }

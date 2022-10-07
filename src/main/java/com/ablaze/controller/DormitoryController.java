@@ -5,12 +5,10 @@ import com.ablaze.entity.Student;
 import com.ablaze.service.BuildingService;
 import com.ablaze.service.DormitoryService;
 import com.ablaze.service.StudentService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -33,40 +31,42 @@ public class DormitoryController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping("/list")
-    public ModelAndView list(){
+    @GetMapping("/listPage")
+    public ModelAndView list(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int size){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("dormitorymanager");
-        modelAndView.addObject("list",dormitoryService.list());
-        modelAndView.addObject("buildingList",buildingService.list());
+        PageInfo pageInfos = new PageInfo(dormitoryService.list(page,size));
+        modelAndView.addObject("pageInfos",pageInfos);
+        modelAndView.addObject("buildingList",buildingService.list(page,size));
         return modelAndView;
     }
 
     @PostMapping("/search")
-    public ModelAndView search(String key,String value){
+    public ModelAndView search(String key,String value,@RequestParam(defaultValue = "1") int page,@RequestParam(defaultValue = "5") int size){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("dormitorymanager");
-        modelAndView.addObject("list",dormitoryService.search(key,value));
-        modelAndView.addObject("buildingList",buildingService.list());
+        PageInfo pageInfos = new PageInfo(dormitoryService.search(key, value, page, size));
+        modelAndView.addObject("pageInfos",pageInfos);
+        modelAndView.addObject("buildingList",buildingService.list(page,size));
         return modelAndView;
     }
 
     @PostMapping("/save")
     public String save(Dormitory dormitory) {
         dormitoryService.save(dormitory);
-        return "redirect:/dormitory/list";
+        return "redirect:/dormitory/listPage";
     }
 
     @PostMapping("/update")
     public String update(Dormitory dormitory) {
         dormitoryService.update(dormitory);
-        return "redirect:/dormitory/list";
+        return "redirect:/dormitory/listPage";
     }
 
     @PostMapping("/delete")
     public String delete(Integer id) {
         dormitoryService.delete(id);
-        return "redirect:/dormitory/list";
+        return "redirect:/dormitory/listPage";
     }
 
     @PostMapping("/findByBuildingId")

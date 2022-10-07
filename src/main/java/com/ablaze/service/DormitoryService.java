@@ -20,7 +20,7 @@ public interface DormitoryService {
      * 宿舍查询全部
      * @return
      */
-    List<Dormitory> list();
+    List<Dormitory> list(int page, int size);
 
     /**
      * 宿舍条件查询
@@ -28,7 +28,7 @@ public interface DormitoryService {
      * @param value
      * @return
      */
-    List<Dormitory> search(String key, String value);
+    List<Dormitory> search(String key, String value, int page, int size);
 
     /**
      * 根据楼宇id查询宿舍id,name

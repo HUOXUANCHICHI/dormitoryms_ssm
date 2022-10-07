@@ -4,6 +4,7 @@ import com.ablaze.entity.Dormitory;
 import com.ablaze.mapper.DormitoryMapper;
 import com.ablaze.mapper.StudentMapper;
 import com.ablaze.service.DormitoryService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,12 +30,14 @@ public class DormitoryServiceImpl implements DormitoryService {
     }
 
     @Override
-    public List<Dormitory> list() {
+    public List<Dormitory> list(int page, int size) {
+        PageHelper.startPage(page,size);
         return dormitoryMapper.list();
     }
 
     @Override
-    public List<Dormitory> search(String key, String value) {
+    public List<Dormitory> search(String key, String value,int page, int size) {
+        PageHelper.startPage(page,size);
         if ("".equals(value)) {
             return dormitoryMapper.list();
         }

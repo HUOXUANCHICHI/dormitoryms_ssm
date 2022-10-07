@@ -3,6 +3,7 @@ package com.ablaze.service.impl;
 import com.ablaze.entity.MoveOut;
 import com.ablaze.mapper.MoveOutMapper;
 import com.ablaze.service.MoveOutService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,12 +20,14 @@ public class MoveOutServiceImpl implements MoveOutService {
     private MoveOutMapper moveOutMapper;
 
     @Override
-    public List<MoveOut> list() {
+    public List<MoveOut> list(int page, int size) {
+        PageHelper.startPage(page,size);
         return moveOutMapper.list();
     }
 
     @Override
-    public List<MoveOut> search(String key, String value) {
+    public List<MoveOut> search(String key, String value, int page, int size) {
+        PageHelper.startPage(page,size);
         if ("".equals(value)) {
             return moveOutMapper.list();
         }

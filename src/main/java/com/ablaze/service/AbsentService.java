@@ -15,7 +15,7 @@ public interface AbsentService {
      * 学生缺寝记录查询全部
      * @return
      */
-    List<Absent> list();
+    List<Absent> list(int page, int size);
 
     /**
      * 学生缺勤记录条件查询
@@ -23,7 +23,7 @@ public interface AbsentService {
      * @param value
      * @return
      */
-    List<Absent> search(String key, String value);
+    List<Absent> search(String key, String value, int page, int size);
 
     /**
      * 学生缺寝记录增加

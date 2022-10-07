@@ -3,6 +3,7 @@ package com.ablaze.controller;
 import com.ablaze.entity.Building;
 import com.ablaze.service.BuildingService;
 import com.ablaze.service.DormitoryAdminService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,11 +27,12 @@ public class BuildingController {
     @Autowired
     private DormitoryAdminService dormitoryAdminService;
 
-    @GetMapping("/list")
+    @GetMapping("/listPage")
     public ModelAndView list(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int size){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("buildingmanager");
-        modelAndView.addObject("list",buildingService.list());
+        PageInfo pageInfos = new PageInfo(buildingService.list(page,size));
+        modelAndView.addObject("pageInfos",pageInfos);
         modelAndView.addObject("dormitoryAdminList",dormitoryAdminService.list(page,size));
         return modelAndView;
     }
@@ -39,7 +41,8 @@ public class BuildingController {
     public ModelAndView search(String key,String value,@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int size){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("buildingmanager");
-        modelAndView.addObject("list",buildingService.search(key, value));
+        PageInfo pageInfos = new PageInfo(buildingService.search(key, value,page,size));
+        modelAndView.addObject("pageInfos",pageInfos);
         modelAndView.addObject("dormitoryAdminList",dormitoryAdminService.list(page,size));
         return modelAndView;
     }
@@ -47,19 +50,19 @@ public class BuildingController {
     @PostMapping("/save")
     public String save(Building building)   {
         buildingService.save(building);
-        return "redirect:/building/list";
+        return "redirect:/building/listPage";
     }
 
     @PostMapping("/update")
     public String update(Building building)   {
         buildingService.update(building);
-        return "redirect:/building/list";
+        return "redirect:/building/listPage";
     }
 
     @PostMapping("/delete")
     public String delete(Integer id)   {
         buildingService.delete(id);
-        return "redirect:/building/list";
+        return "redirect:/building/listPage";
     }
 
 }

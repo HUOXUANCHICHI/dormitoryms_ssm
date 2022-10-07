@@ -14,7 +14,7 @@ public interface BuildingService {
      * 楼宇查询全部
      * @return
      */
-    List<Building> list();
+    List<Building> list(int page,int size);
 
     /**
      * 楼宇条件查询
@@ -22,7 +22,7 @@ public interface BuildingService {
      * @param value
      * @return
      */
-    List<Building> search(String key,String value);
+    List<Building> search(String key,String value,int page,int size);
 
     /**
      * 楼宇增加

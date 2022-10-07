@@ -17,7 +17,7 @@ public interface StudentService {
      * @param size
      * @return
      */
-    List<Student> list(int page,int size);
+    List<Student> list(int page, int size);
 
     /**
      * 学生条件查询
@@ -27,7 +27,7 @@ public interface StudentService {
      * @param size
      * @return
      */
-    List<Student> search(String key,String value,int page,int size);
+    List<Student> search(String key, String value, int page, int size);
 
     /**
      * 学生增加 对应宿舍减一
@@ -51,7 +51,7 @@ public interface StudentService {
      * 学生迁出宿舍记录查询全部
      * @return
      */
-    List<Student> moveOutList();
+    List<Student> moveOutList(int page, int size);
 
     /**
      * 学生迁出列表条件查询
@@ -59,7 +59,7 @@ public interface StudentService {
      * @param value
      * @return
      */
-    List<Student> searchForMoveOutList(String key,String value);
+    List<Student> searchForMoveOutList(String key,String value, int page, int size);
 
     /**
      * 根据宿舍id查询学生id,name

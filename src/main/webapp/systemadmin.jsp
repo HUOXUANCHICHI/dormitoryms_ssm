@@ -53,27 +53,27 @@
 							<i class="fa fa-user-circle fa-fw"></i>
 						</span>学生管理
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/building/list',2)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/building/listPage?page=1&size=5',2)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-home fa-fw"></i>
 						</span>楼宇管理
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/dormitory/list',3)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/dormitory/listPage?page=1&size=5',3)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-bed fa-fw"></i>
 						</span>宿舍管理
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/moveOut/list',4)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/moveOut/listPage?page=1&size=5',4)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-address-card-o fa-fw"></i>
 						</span>学生迁出登记
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/moveOut/record',5)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/moveOut/record?page=1&size=5',5)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-bookmark fa-fw"></i>
 						</span>学生迁出记录
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/absent/list',6)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/absent/listPage?page=1&size=5',6)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-bookmark-o fa-fw"></i>
 						</span>学生缺寝记录
@@ -81,7 +81,7 @@
 
         </div>
         <!--右边内容-->
-        <iframe style="width: 81%; height: 600px; border: 0px;" src="${pageContext.request.contextPath}/dormitoryAdmin/list"></iframe>
+        <iframe style="width: 81%; height: 600px; border: 0px;" src="${pageContext.request.contextPath}/dormitoryAdmin/listPage?page=1&size=5"></iframe>
     </div>
 </div>
 <div class="footer">

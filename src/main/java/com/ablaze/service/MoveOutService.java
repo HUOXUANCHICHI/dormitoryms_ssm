@@ -14,7 +14,7 @@ public interface MoveOutService {
      * 学生迁出记录查询全部
      * @return
      */
-    List<MoveOut> list();
+    List<MoveOut> list(int page, int size);
 
     /**
      * 学生迁出记录条件查询
@@ -22,5 +22,5 @@ public interface MoveOutService {
      * @param value
      * @return
      */
-    List<MoveOut> search(String key, String value);
+    List<MoveOut> search(String key, String value,int page, int size);
 }
