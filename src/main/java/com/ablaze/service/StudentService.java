@@ -13,6 +13,8 @@ public interface StudentService {
 
     /**
      * 学生查询全部
+     * @param page
+     * @param size
      * @return
      */
     List<Student> list(int page,int size);
@@ -21,9 +23,11 @@ public interface StudentService {
      * 学生条件查询
      * @param key
      * @param value
+     * @param page
+     * @param size
      * @return
      */
-    List<Student> search(String key,String value);
+    List<Student> search(String key,String value,int page,int size);
 
     /**
      * 学生增加 对应宿舍减一

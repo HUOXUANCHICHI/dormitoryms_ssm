@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -26,20 +27,20 @@ public class BuildingController {
     private DormitoryAdminService dormitoryAdminService;
 
     @GetMapping("/list")
-    public ModelAndView list(){
+    public ModelAndView list(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int size){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("buildingmanager");
         modelAndView.addObject("list",buildingService.list());
-        modelAndView.addObject("dormitoryAdminList",dormitoryAdminService.list());
+        modelAndView.addObject("dormitoryAdminList",dormitoryAdminService.list(page,size));
         return modelAndView;
     }
 
     @PostMapping("/search")
-    public ModelAndView search(String key,String value){
+    public ModelAndView search(String key,String value,@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int size){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("buildingmanager");
         modelAndView.addObject("list",buildingService.search(key, value));
-        modelAndView.addObject("dormitoryAdminList",dormitoryAdminService.list());
+        modelAndView.addObject("dormitoryAdminList",dormitoryAdminService.list(page,size));
         return modelAndView;
     }
 

@@ -12,17 +12,21 @@ public interface DormitoryAdminService {
 
     /**
      * 宿舍管理员信息查询全部
+     * @param page
+     * @param size
      * @return
      */
-    List<DormitoryAdmin> list();
+    List<DormitoryAdmin> list(int page,int size);
 
     /**
      * 宿舍管理员条件查询
      * @param key
      * @param value
+     * @param page
+     * @param size
      * @return
      */
-    List<DormitoryAdmin> search(String key,String value);
+    List<DormitoryAdmin> search(String key,String value,int page,int size);
 
     /**
      * 宿舍管理员增加

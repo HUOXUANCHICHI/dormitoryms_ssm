@@ -3,6 +3,7 @@ package com.ablaze.service.impl;
 import com.ablaze.entity.DormitoryAdmin;
 import com.ablaze.mapper.DormitoryAdminMapper;
 import com.ablaze.service.DormitoryAdminService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,12 +21,14 @@ public class DormitoryAdminServiceImpl implements DormitoryAdminService {
 
 
     @Override
-    public List<DormitoryAdmin> list() {
+    public List<DormitoryAdmin> list(int page,int size) {
+        PageHelper.startPage(page,size);
         return dormitoryAdminMapper.list();
     }
 
     @Override
-    public List<DormitoryAdmin> search(String key, String value) {
+    public List<DormitoryAdmin> search(String key, String value,int page,int size) {
+        PageHelper.startPage(page,size);
         if ("".equals(key)) {
             return dormitoryAdminMapper.list();
         }

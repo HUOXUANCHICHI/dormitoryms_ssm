@@ -43,7 +43,7 @@
     <div class="row">
         <div class="col-sm-2">
 
-            <a href="javascript:void(0)" class="list-group-item active" onclick="change('${pageContext.request.contextPath}/dormitoryAdmin/list',0)">
+            <a href="javascript:void(0)" class="list-group-item active" onclick="change('${pageContext.request.contextPath}/dormitoryAdmin/listPage?page=1&size=5',0)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-user-circle-o fa-fw"></i>
 						</span>宿管管理

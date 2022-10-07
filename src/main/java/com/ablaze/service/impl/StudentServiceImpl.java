@@ -33,7 +33,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> search(String key, String value) {
+    public List<Student> search(String key, String value,int page,int size) {
+        PageHelper.startPage(page,size);
         if ("".equals(value)) {
             return studentMapper.list();
         }

@@ -26,14 +26,16 @@ public class StudentController {
     private DormitoryService dormitoryService;
 
 
-    /*@GetMapping("/list")
-    public ModelAndView list() {
+/*
+    @GetMapping("/list")
+    public ModelAndView list(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int size) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("studentmanager");
-        modelAndView.addObject("list", studentService.list());
+        modelAndView.addObject("list", studentService.list(page,size));
         modelAndView.addObject("dormitoryList", dormitoryService.availableList());
         return modelAndView;
-    }*/
+    }
+*/
 
     @GetMapping("/listPage")
     public ModelAndView listPage(@RequestParam(defaultValue = "1") int page,@RequestParam(defaultValue = "5") int size) {
@@ -46,10 +48,11 @@ public class StudentController {
     }
 
     @PostMapping("/search")
-    public ModelAndView search(String key, String value) {
+    public ModelAndView search(String key, String value,@RequestParam(defaultValue = "1") int page,@RequestParam(defaultValue = "5") int size) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("studentmanager");
-        modelAndView.addObject("list", studentService.search(key, value));
+        PageInfo pageInfos = new PageInfo(studentService.search(key, value,page,size));
+        modelAndView.addObject("pageInfos",pageInfos);
         modelAndView.addObject("dormitoryList", dormitoryService.availableList());
         return modelAndView;
     }
@@ -57,19 +60,19 @@ public class StudentController {
     @PostMapping("/save")
     public String save(Student student){
         studentService.save(student);
-        return "redirect:/student/list";
+        return "redirect:/student/listPage";
     }
 
     @PostMapping("/update")
     public String update(Student student){
         studentService.update(student);
-        return "redirect:/student/list";
+        return "redirect:/student/listPage";
     }
 
     @PostMapping("/delete")
     public String delete(Student student){
         studentService.delete(student);
-        return "redirect:/student/list";
+        return "redirect:/student/listPage";
     }
 
     @PostMapping("/findByDormitoryId")

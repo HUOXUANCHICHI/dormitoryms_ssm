@@ -16,6 +16,7 @@ public interface StudentMapper {
      */
     List<Student> list();
 
+
     /**
      * 根据学号查询
      * @param value
