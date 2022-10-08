@@ -94,7 +94,7 @@
 <script>
     $(function(){
         $('#building').change(function(){
-            const id = $(this).val();
+            const id = $(this).val(); //获取某个元素节点的value属性的值
             $.ajax({
                 url:"${pageContext.request.contextPath}/dormitory/findByBuildingId?buildingId="+id,
                 type:"post",

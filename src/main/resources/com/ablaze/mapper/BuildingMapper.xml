@@ -22,7 +22,7 @@
         from building b,
              dormitory_admin d
         where b.admin_id = d.id
-          and b.name like concat('%', #{value}, '%')
+          and b.name like concat('%', trim(#{value}), '%')
     </select>
 
     <select id="searchByIntroduction" resultType="Building">
@@ -34,7 +34,7 @@
         from building b,
              dormitory_admin d
         where b.admin_id = d.id
-          and b.introduction like concat('%', #{value}, '%')
+          and b.introduction like concat('%', trim(#{value}), '%')
     </select>
 
     <insert id="save">

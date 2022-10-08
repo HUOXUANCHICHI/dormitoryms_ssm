@@ -27,7 +27,7 @@
         from student s,
              dormitory d
         where s.dormitory_id = d.id
-          and s.number like concat('%', #{value}, '%')
+          and s.number like concat('%', trim(#{value}), '%')
     </select>
     <select id="searchByName" resultType="Student">
         select s.id,
@@ -41,7 +41,7 @@
         from student s,
              dormitory d
         where s.dormitory_id = d.id
-          and s.name like concat('%', #{value}, '%')
+          and s.name like concat('%', trim(#{value}), '%')
     </select>
     <select id="findStudentIdByDormitoryId" resultType="java.lang.Integer">
         select id
@@ -75,7 +75,7 @@
              dormitory d
         where s.dormitory_id = d.id
           and s.state = '入住'
-          and s.number like concat('%', #{value}, '%')
+          and s.number like concat('%', trim(#{value}), '%')
     </select>
 
     <select id="searchForMoveOutByName" resultType="Student">
@@ -90,7 +90,7 @@
              dormitory d
         where s.dormitory_id = d.id
           and s.state = '入住'
-          and s.name like concat('%', #{value}, '%')
+          and s.name like concat('%', trim(#{value}), '%')
     </select>
 
     <select id="findByDormitoryId" resultType="Student">

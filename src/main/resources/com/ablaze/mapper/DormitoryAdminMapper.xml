@@ -9,21 +9,21 @@
     <select id="searchByUsername" resultType="DormitoryAdmin">
         select *
         from dormitory_admin
-        where username like concat('%', #{value}, '%')
+        where username like concat('%', trim(#{value}), '%')
     </select>
     <select id="searchByName" resultType="DormitoryAdmin">
         select *
         from dormitory_admin
-        where name like concat('%', #{value}, '%')
+        where name like concat('%', trim(#{value}), '%')
     </select>
     <select id="searchByTelephone" resultType="DormitoryAdmin">
         select *
         from dormitory_admin
-        where telephone like concat('%', #{value}, '%')
+        where telephone like concat('%', trim(#{value}), '%')
     </select>
 
     <select id="findByUserName" resultType="DormitoryAdmin">
-        select * from dormitory_admin where username = #{username}
+        select * from dormitory_admin where username = trim(#{username})
     </select>
 
     <insert id="save">

@@ -38,7 +38,7 @@
           and s.id = a.student_id
           and b.id = a.building_id
           and da.id = a.dormitory_admin_id
-          and b.name like concat('%', #{value}, '%')
+          and b.name like concat('%', trim(#{value}), '%')
     </select>
 
     <select id="searchByDormitoryName" resultType="Absent">
@@ -58,10 +58,10 @@
           and s.id = a.student_id
           and b.id = a.building_id
           and da.id = a.dormitory_admin_id
-          and d.name like concat('%', #{value}, '%')
+          and d.name like concat('%', trim(#{value}), '%')
     </select>
 
-    <select id="searchByStudentName" resultType="com.ablaze.entity.Absent">
+    <select id="searchByStudentName" resultType="Absent">
         select a.id,
                b.name        buildingName,
                d.name        dormitoryName,
@@ -78,7 +78,7 @@
           and s.id = a.student_id
           and b.id = a.building_id
           and da.id = a.dormitory_admin_id
-          and s.name like concat('%', #{value}, '%')
+          and s.name like concat('%', trim(#{value}), '%')
     </select>
 
     <insert id="save">

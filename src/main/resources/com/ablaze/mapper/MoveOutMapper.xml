@@ -27,7 +27,7 @@
              dormitory d
         where m.student_id = s.id
           and m.dormitory_id = d.id
-          and s.name like concat('%', #{value}, '%')
+          and s.name like concat('%', trim(#{value}), '%')
     </select>
 
     <select id="searchByDormitoryName" resultType="MoveOut">
@@ -41,6 +41,6 @@
              dormitory d
         where m.student_id = s.id
           and m.dormitory_id = d.id
-          and d.name like concat('%', #{value}, '%')
+          and d.name like concat('%', trim(#{value}), '%')
     </select>
 </mapper>
