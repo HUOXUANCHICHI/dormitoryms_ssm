@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- 引入 Bootstrap -->
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
@@ -12,11 +12,12 @@
     <!-- 引入 font-awesome -->
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>宿舍管理系统</title>
     <script type="application/javascript">
-        function change(url,index){
+        function change(url, index) {
             $(".list-group-item").removeClass("active");
             $(".list-group-item").eq(index).addClass("active");
-            $("iframe").attr("src",url);
+            $("iframe").attr("src", url);
         }
     </script>
 </head>
@@ -43,37 +44,37 @@
     <div class="row">
         <div class="col-sm-2">
 
-            <a href="javascript:void(0)" class="list-group-item active" onclick="change('${pageContext.request.contextPath}/dormitoryAdmin/listPage?page=1&size=5',0)">
+            <a href="javascript:void(0)" class="list-group-item active" onclick="change('${pageContext.request.contextPath}/dormitoryAdmin/listPage',0)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-user-circle-o fa-fw"></i>
 						</span>宿管管理
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/student/listPage?page=1&size=5',1)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/student/listPage',1)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-user-circle fa-fw"></i>
 						</span>学生管理
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/building/listPage?page=1&size=5',2)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/building/listPage',2)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-home fa-fw"></i>
 						</span>楼宇管理
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/dormitory/listPage?page=1&size=5',3)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/dormitory/listPage',3)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-bed fa-fw"></i>
 						</span>宿舍管理
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/moveOut/listPage?page=1&size=5',4)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/moveOut/listPage',4)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-address-card-o fa-fw"></i>
 						</span>学生迁出登记
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/moveOut/record?page=1&size=5',5)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/moveOut/record',5)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-bookmark fa-fw"></i>
 						</span>学生迁出记录
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/absent/listPage?page=1&size=5',6)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/absent/listPage',6)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-bookmark-o fa-fw"></i>
 						</span>学生缺寝记录
@@ -81,7 +82,7 @@
 
         </div>
         <!--右边内容-->
-        <iframe style="width: 81%; height: 600px; border: 0px;" src="${pageContext.request.contextPath}/dormitoryAdmin/listPage?page=1&size=5"></iframe>
+        <iframe style="width: 81%; height: 600px; border: 0px;" src="${pageContext.request.contextPath}/dormitoryAdmin/listPage"></iframe>
     </div>
 </div>
 <div class="footer">

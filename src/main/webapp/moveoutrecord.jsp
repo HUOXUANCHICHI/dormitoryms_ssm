@@ -72,24 +72,23 @@
             </div>
             <nav aria-label="Page navigation" style="text-align: center;">
                 <ul class="pagination">
-                    <li><a href="${pageContext.request.contextPath}/moveOut/record.do?page=1&size=5" aria-label="Previous">首页</a>
+                    <li><a href="${pageContext.request.contextPath}/moveOut/record?page=1&size=5" aria-label="Previous">首页</a>
                     </li>
-                    <li><a href="${pageContext.request.contextPath}/moveOut/record.do?page=${pageInfos.pageNum-1}&size=5">上一页</a>
+                    <li><a href="${pageContext.request.contextPath}/moveOut/record?page=${pageInfos.pageNum-1}&size=5">上一页</a>
                     </li>
                     <c:forEach begin="1" end="${pageInfos.pages}" var="pageNumber">
                         <li>
-                            <a href="${pageContext.request.contextPath}/moveOut/record.do?page=${pageNumber}&size=5">${pageNumber}</a>
+                            <a href="${pageContext.request.contextPath}/moveOut/record?page=${pageNumber}&size=5">${pageNumber}</a>
                         </li>
                     </c:forEach>
-                    <li><a href="${pageContext.request.contextPath}/moveOut/record.do?page=${pageInfos.pageNum+1}&size=5">下一页</a>
+                    <li><a href="${pageContext.request.contextPath}/moveOut/record?page=${pageInfos.pageNum+1}&size=5">下一页</a>
                     </li>
-                    <li><a href="${pageContext.request.contextPath}/moveOut/record.do?page=${pageInfos.pages}&size=5"
+                    <li><a href="${pageContext.request.contextPath}/moveOut/record?page=${pageInfos.pages}&size=5"
                            aria-label="Next">尾页</a></li>
                 </ul>
             </nav>
         </div>
     </div>
-</div>
 </div>
 
 </body>

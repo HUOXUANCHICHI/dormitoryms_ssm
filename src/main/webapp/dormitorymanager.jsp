@@ -247,18 +247,18 @@
             </div>
             <nav aria-label="Page navigation" style="text-align: center;">
                 <ul class="pagination">
-                    <li><a href="${pageContext.request.contextPath}/dormitory/listPage.do?page=1&size=5" aria-label="Previous">首页</a>
+                    <li><a href="${pageContext.request.contextPath}/dormitory/listPage?page=1&size=5" aria-label="Previous">首页</a>
                     </li>
-                    <li><a href="${pageContext.request.contextPath}/dormitory/listPage.do?page=${pageInfos.pageNum-1}&size=5">上一页</a>
+                    <li><a href="${pageContext.request.contextPath}/dormitory/listPage?page=${pageInfos.pageNum-1}&size=5">上一页</a>
                     </li>
                     <c:forEach begin="1" end="${pageInfos.pages}" var="pageNumber">
                         <li>
-                            <a href="${pageContext.request.contextPath}/dormitory/listPage.do?page=${pageNumber}&size=5">${pageNumber}</a>
+                            <a href="${pageContext.request.contextPath}/dormitory/listPage?page=${pageNumber}&size=5">${pageNumber}</a>
                         </li>
                     </c:forEach>
-                    <li><a href="${pageContext.request.contextPath}/dormitory/listPage.do?page=${pageInfos.pageNum+1}&size=5">下一页</a>
+                    <li><a href="${pageContext.request.contextPath}/dormitory/listPage?page=${pageInfos.pageNum+1}&size=5">下一页</a>
                     </li>
-                    <li><a href="${pageContext.request.contextPath}/dormitory/listPage.do?page=${pageInfos.pages}&size=5"
+                    <li><a href="${pageContext.request.contextPath}/dormitory/listPage?page=${pageInfos.pages}&size=5"
                            aria-label="Next">尾页</a></li>
                 </ul>
             </nav>
@@ -280,7 +280,7 @@
         modal.find('#telephone').val(telephone)
     })
 
-    $('#delUserModal').on('show.bs.modal', function(event) {
+    $('#delUserModal').on('show.bs.modal', function (event) {
         const button = $(event.relatedTarget);
         const id = button.data('id');
         const modal = $(this);

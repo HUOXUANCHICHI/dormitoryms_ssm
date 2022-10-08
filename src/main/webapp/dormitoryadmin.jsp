@@ -19,6 +19,7 @@
             $("iframe").attr("src",url);
         }
     </script>
+    <title>宿舍管理系统</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse" role="navigation">
@@ -48,7 +49,7 @@
 							<i class="fa fa-bookmark fa-fw"></i>
 						</span>学生缺寝登记
             </a>
-            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/absent/listPage?page=1&size=5',1)">
+            <a href="javascript:void(0)" class="list-group-item" onclick="change('${pageContext.request.contextPath}/absent/listPage',1)">
 						<span class="" aria-hidden="true">
 							<i class="fa fa-bookmark-o fa-fw"></i>
 						</span>学生缺寝记录

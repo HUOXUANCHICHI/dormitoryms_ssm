@@ -7,11 +7,10 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "Go To Login!" %>
 </h1>
 
 <br/>
-<a href="hello-servlet">Hello Servlet</a><br><hr>
 <a href="${pageContext.request.contextPath}/login.jsp">Go To Login</a>
 </body>
 </html>
